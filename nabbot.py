@@ -27,7 +27,8 @@ zhong_response_images = [
 	"NoThanks.png", 
 	"saitama.png", 
 	"WhatAPerfectWayToPutIt.png", 
-	"kacchan.png"
+	"kacchan.png",
+	"Tatsumaki.png"
 ]
 fish_gif = "fish.mp4"
 ikr_path = base_dir + "ikr.json"
