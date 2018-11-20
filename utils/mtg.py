@@ -34,7 +34,6 @@ async def mtg_add_id(message, channel):
 			await channel.send("Yo, you're missing some info here. Either do addmtg [name] [id] or addmtg [id]")
 			return
 	if re.fullmatch(mtg_regex, id):
-		print(hasName)
 		with open(mtg_path, "r") as f:
 			ids = json.load(f)
 		with open(mtg_path, "w") as f:
