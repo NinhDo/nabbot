@@ -19,6 +19,7 @@ challenges_path = base_dir + "challenges.json"
 img_path = base_dir + "img/"
 bad_words_path = base_dir + "bad_words.json"
 zhong_response_images = [
+	"AH.png",
 	"AreYouKiddingMe.png", 
 	"ThatsAllWrong.png", 
 	"IsThatSo.png", 
@@ -28,9 +29,12 @@ zhong_response_images = [
 	"saitama.png", 
 	"WhatAPerfectWayToPutIt.png", 
 	"kacchan.png",
-	"Tatsumaki.png"
+	"Tatsumaki.png",
+	"kaminari.png",
+	"laius.png",
+	"midoriya.png"
 ]
-fish_gif = "fish.mp4"
+fish_gif = "fish.gif"
 ikr_path = base_dir + "ikr.json"
 
 config = configparser.ConfigParser()
@@ -67,6 +71,11 @@ async def on_message(message):
 	if message.author == bot.user:
 		return
 	channel = message.channel
+	# Attachment checks
+	if message.author.id == nubbot:
+#		for a in message.attachments:
+#			print(a.filename)
+		await cancel(message)
 	# Check if the correct prefix is used
 	if len(message.content) == 0:
 		return
@@ -96,7 +105,10 @@ async def on_message(message):
 		elif command in commands["Fortnite"]["Edit"].keys():
 			await fortnite_edit_challenge(message, channel)
 		else:
-			await channel.send("You did something wrong. Try `{}commands`".format(config["DEFAULT"]["command_prefix"]))
+			if message.content[1] == ".":
+				return
+			else:
+				await channel.send("You did something wrong. Try `{}commands`".format(config["DEFAULT"]["command_prefix"]))
 	if (bot.user.mentioned_in(message) and len(message.content.split(" ")) == 1):
 		await i_am_here(channel)
 	if message.content.lower() in json.load(open(bad_words_path)):
@@ -110,6 +122,8 @@ async def on_message(message):
 	if re.match("(.*)( - \w+ \d+)", message.content) and re.match("(.*)( - \w+ \d+)", message.content).span() == (0, len(message.content)):
 		await lenny(message, channel)
 	if len(message.mentions) >= 1 and message.mentions[0].id == katie and len(message.content.split(" ")) == 1:
+		await fish(channel)
+	if message.content == "testfish":
 		await fish(channel)
 	if bot.user.mentioned_in(message) and "play" in message.content.lower().split(" ") and "despacito" in message.content.lower().split(" "):
 		await despacito(channel)
@@ -239,6 +253,15 @@ async def reverse(channel):
 	with open(img_path + "reverse.png", "rb") as f:
 		await channel.send(file=discord.File(f, "reverse.png"))
 
+async def cancel(message):
+	for a in message.attachments:
+		if a.filename == "skip-card.png":
+			if random.randint(1, 100) <= 50:
+				return
+			with open(img_path + "spellpierce.jpg", "rb") as f:
+				await message.channel.send(file=discord.File(f, "spellpierce.jpg"))
+			return
+
 async def random_zhong_response(channel):
 	if random.randint(1, 100) <= RESPONSE_CHANCE:
 		with open(img_path + random.choice(zhong_response_images), "rb") as f:
@@ -282,7 +305,7 @@ async def angry(message, channel):
 
 async def fish(channel):
 	with open(img_path + fish_gif, "rb") as f:
-		await channel.send(file=discord.File(f, "reeling_in_katie.mp4"))
+		await channel.send(file=discord.File(f, "reeling_in_katie.gif"))
 
 async def despacito(channel):
 	await channel.send("Now playing: `Despacito 2 (ft. Lil' Pump)`\n\n ------------:small_orange_diamond:------------------\n\n◄◄▐▐ ►►   1:17 / 4:20   ------:small_blue_diamond: :loud_sound:")
