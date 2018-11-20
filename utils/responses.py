@@ -25,6 +25,8 @@ zhong_response_images = [
 fish_gif = "fish.gif"
 ikr_path = base_dir + "ikr.json"
 
+RESPONSE_CHANCE = 5
+
 async def reverse(channel):
 	if random.randint(1, 100) <= 50:
 		return
@@ -68,3 +70,6 @@ async def fish(channel):
 
 async def despacito(channel):
 	await channel.send("Now playing: `Despacito 2 (ft. Lil' Pump)`\n\n ------------:small_orange_diamond:------------------\n\n◄◄▐▐ ►►   1:17 / 4:20   ------:small_blue_diamond: :loud_sound:")
+
+async def send_error(channel):
+	await channel.send("That doesn't look like anything to me.")

@@ -16,6 +16,7 @@ import select
 from utils.dice import *
 from utils.fortnite import *
 from utils.responses import *
+from utils.mtg import *
 
 base_dir = "/home/ninhdo/discord/"
 command_path = base_dir + "commands.json"
@@ -25,9 +26,6 @@ config.read(base_dir + "config.ini")
 
 token = config["DEFAULT"]["token"]
 bot = commands.Bot(command_prefix=config["DEFAULT"]["command_prefix"], description='Katie sucks', case_insensitive=True)
-challenge_regex = "[A-z0-9\.\,\' \(\)]+"
-
-RESPONSE_CHANCE = 5
 
 katie = 280428569174212610
 zhong = 95480354386751488
@@ -87,6 +85,12 @@ async def on_message(message):
 			await fortnite_delete_challenge(message, channel)
 		elif command in commands["Fortnite"]["Edit"].keys():
 			await fortnite_edit_challenge(message, channel)
+		elif command in commands["MTG"]["Print"].keys():
+			await mtg_print_ids(channel)
+		elif command in commands["MTG"]["Add"].keys():
+			await mtg_add_id(message, channel)
+		elif command in commands["MTG"]["Delete"].keys():
+			await mtg_delete_id(message, channel)
 		else:
 			if message.content[1] == ".":
 				return
@@ -115,7 +119,7 @@ async def print_commands(channel):
 	with open(command_path) as f:
 		commands = json.load(f)
 	return_message = ""
-	return_message += "Dice:\n ```md\n"
+	return_message += "Dice:\n```md\n"
 	for command in commands["Dice"].keys():
 		return_message += "* {} \t {}\n".format(command, commands["Dice"][command])
 	return_message += "```\n"
@@ -123,11 +127,13 @@ async def print_commands(channel):
 	for key in commands["Fortnite"].keys():
 		for command in commands["Fortnite"][key].keys():
 			return_message += "* {} \t {}\n".format(command, commands["Fortnite"][key][command])
+	return_message += "```\n"
+	return_message += "MTGA:\n```md\n"
+	for key in commands["MTG"].keys():
+		for command in commands["MTG"][key].keys():
+			return_message += "* {} \t {}\n".format(command, commands["MTG"][key][command])
 	return_message += "```"
 	await channel.send(return_message)
-
-async def send_error(channel):
-	await channel.send(config["DEFAULT"]["error_msg"])
 
 async def say():
 	await bot.wait_until_ready()

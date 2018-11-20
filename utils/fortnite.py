@@ -1,10 +1,13 @@
 import asyncio
 import random
 import json
-
+import re
+from .responses import send_error
 
 base_dir = "/home/ninhdo/discord/"
 challenges_path = base_dir + "challenges.json"
+
+challenge_regex = "[A-z0-9\.\,\' \(\)]+"
 
 async def fortnite_random_challenge(channel):
 	with open(challenges_path) as f:
@@ -26,7 +29,7 @@ async def fortnite_add_challenge(message, channel):
 		await channel.send("Only a GOD can do this!")
 		return
 	msg_content = message.content.split(" ", 1)[1]
-	if re.match(challenge_regex, msg_content).span() == (0, len(msg_content)):
+	if re.fullmatch(challenge_regex, msg_content):
 		with open(challenges_path, "r") as f:
 			challenges = json.load(f)
 		with open(challenges_path, "w") as f:

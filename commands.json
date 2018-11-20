@@ -1,41 +1,55 @@
 {
-  "Text": {
-    "sandwich": "A seagull flies by, stealing your sandwich",
-    "quality": "Quality over quantity",
-    "quantity": "QUANTITY OVER QUALITY! ZHONG YOU WERE WROOOOO---",
-    "revolution": "VIVA LA REVOLUTION! :fire::fire::fire:"
-  },
-  "Katie": {
-    "katie": {
-      "text1": "Katie doesn't suck",
-      "wait": 5,
-      "text2": "sometimes"
-    }
-  },
-  "Dice": {
-    "r": "Rolls dice. The formula is [# dice]d[# sides] + [modifiers or other dice]. e.g. /r 1d20+4",
-    "roll": "Rolls dice. The formula is [#dice]d[# sides] + [modifiers or other dice]. e.g. /roll 1d20+4"
-  },
-  "Fortnite": {
-    "Random": {
-      "challenge": "Gives you a random Fortnite challenge.",
-      "fc": "Gives you a random Fortnite challenge."
-    },
-    "Print": {
-      "allchallenges": "Prints all current challenges.",
-      "ac": "Prints all current challenges."
-    },
-    "Add": {
-      "addchallenge": "Adds a new challenge.",
-      "addc": "Adds a new challenge."
-    },
-    "Delete": {
-      "deletechallenge": "Deletes the selected challenge. e.g. /deletechallenge 4",
-      "delc": "Deletes the selected challenge. e.g. /delc 4"
-    },
-    "Edit": {
-      "editchallenge": "Edits the selected challenge. e.g. /editchallenge 4 A new challenge",
-      "editc": "Edits the selected challenge. e.g. /editc 4 A new challenge"
-    }
-  }
+	"Text": {
+		"sandwich": "A seagull flies by, stealing your sandwich",
+		"quality": "Quality over quantity",
+		"quantity": "QUANTITY OVER QUALITY! ZHONG YOU WERE WROOOOO---",
+		"revolution": "VIVA LA REVOLUTION! :fire::fire::fire:"
+	},
+	"Katie": {
+		"katie": {
+			"text1": "Katie doesn't suck",
+			"wait": 5,
+			"text2": "sometimes"
+		}
+	},
+	"Dice": {
+		"r": "Rolls dice. The formula is [# dice]d[# sides] + [modifiers or other dice]. e.g. r 1d20+4",
+		"roll": "Rolls dice. The formula is [#dice]d[# sides] + [modifiers or other dice]. e.g. roll 1d20+4"
+	},
+	"Fortnite": {
+		"Random": {
+			"challenge": "Gives you a random Fortnite challenge.",
+			"fc": "Gives you a random Fortnite challenge."
+		},
+		"Print": {
+			"allchallenges": "Prints all current challenges.",
+			"ac": "Prints all current challenges."
+		},
+		"Add": {
+			"addchallenge": "Adds a new challenge.",
+			"addc": "Adds a new challenge."
+		},
+		"Delete": {
+			"deletechallenge": "Deletes the selected challenge. e.g. deletechallenge 4",
+			"delc": "Deletes the selected challenge. e.g. delc 4"
+		},
+		"Edit": {
+			"editchallenge": "Edits the selected challenge. e.g. editchallenge 4 A new challenge",
+			"editc": "Edits the selected challenge. e.g. editc 4 A new challenge"
+		}
+	},
+	"MTG": {
+		"Print": {
+			"mtgaids": "Prints all MTGA IDs",
+			"mids": "Prints all MTGA IDs"
+		},
+		"Add": {
+			"addmtg": "Adds a MTGA ID",
+			"addm": "Adds a MTGA ID"
+		},
+		"Delete": {
+			"delmtg": "Deletes the selected MTGA ID. e.g. delmtg Naneth",
+			"delm": "Deletes the selected MTGA ID. e.g. delm Naneth"
+		}
+	}
 }

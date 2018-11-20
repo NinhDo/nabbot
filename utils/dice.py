@@ -1,6 +1,7 @@
 import asyncio
 import re
 import random
+from .responses import send_error
 
 async def roll_dice(message, channel):
 	roll_text = message.content.split(" ", 1)[1].lower()
