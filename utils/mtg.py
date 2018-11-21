@@ -18,9 +18,6 @@ async def mtg_print_ids(channel):
 		await channel.send(response)
 
 async def mtg_add_id(message, channel):
-	if not message.author.top_role.permissions.administrator:
-		await channel.send("Only a GOD can do this!")
-		return
 	hasName = False
 	try:
 		name = message.content.split(" ")[1]
