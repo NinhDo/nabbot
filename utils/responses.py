@@ -23,6 +23,7 @@ zhong_response_images = [
 	"midoriya.png"
 ]
 fish_gif = "fish.gif"
+bender_gif = "ShutUpBabyIKnowIt.gif"
 ikr_path = base_dir + "ikr.json"
 
 RESPONSE_CHANCE = 5
@@ -59,7 +60,9 @@ async def lenny(message, channel):
 		await channel.send("\u0028 \u0361\u00b0 \u035c\u0296 \u0361\u00b0\u0029")
 
 async def thanks(message, channel):
-	await channel.send("Thanks, {}! :D".format(message.author.mention))
+#	await channel.send("Thanks, {}! :D".format(message.author.mention))
+	with open(img_path + bender_gif, "rb") as f:
+		await channel.send(file=discord.File(f, "The_Best.gif"))
 
 async def angry(message, channel):
 	await channel.send(">:C {}".format(message.author.mention))
