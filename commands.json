@@ -51,5 +51,18 @@
 			"delmtg": "Deletes the selected MTGA ID. e.g. delmtg Naneth",
 			"delm": "Deletes the selected MTGA ID. e.g. delm Naneth"
 		}
+	},
+	"Nintendo": {
+		"Print": {
+			"nfc": "Prints all Nintendo FCs"
+		},
+		"Add": {
+			"addnfc": "Adds a Nintendo FC",
+			"anfc": "Adds a Nintendo FC"
+		},
+		"Delete": {
+			"delnfc": "Deletes the selected Nintendo FC. e.g. delnfc Naneth",
+			"dnfc": "Deletes the selected Nintendo FC. e.g. delnfc Naneth"
+		}
 	}
 }

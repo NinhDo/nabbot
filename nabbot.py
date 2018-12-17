@@ -17,6 +17,7 @@ from utils.dice import *
 from utils.fortnite import *
 from utils.responses import *
 from utils.mtg import *
+from utils.nintendo import *
 
 base_dir = "/home/ninhdo/discord/"
 command_path = base_dir + "commands.json"
@@ -91,6 +92,12 @@ async def on_message(message):
 			await mtg_add_id(message, channel)
 		elif command in commands["MTG"]["Delete"].keys():
 			await mtg_delete_id(message, channel)
+		elif command in commands["Nintendo"]["Print"].keys():
+			await nfc_print_fcs(channel)
+		elif command in commands["Nintendo"]["Add"].keys():
+			await nfc_add_fc(message, channel)
+		elif command in commands["Nintendo"]["Delete"].keys():
+			await nfc_delete_fc(message, channel)
 		else:
 			if message.content[1] == ".":
 				return
