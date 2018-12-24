@@ -111,7 +111,7 @@ async def on_message(message):
 		await i_am_here(channel)
 	if message.content.lower() in json.load(open(bad_words_path)):
 		await reverse(channel)
-	if message.author.id == zhong or message.author.id == nubbot:
+	if message.author.id == zhong or message.author.id == nubbot or message.content == "testzhong":
 		await random_zhong_response(channel)
 	if message.content.lower() in json.load(open(ikr_path)):
 		await ikr(channel)
@@ -120,8 +120,6 @@ async def on_message(message):
 	if re.match("(.*)( - \w+ \d+)", message.content) and re.match("(.*)( - \w+ \d+)", message.content).span() == (0, len(message.content)):
 		await lenny(message, channel)
 	if len(message.mentions) >= 1 and message.mentions[0].id == katie and len(message.content.split(" ")) == 1:
-		await fish(channel)
-	if message.content == "testfish":
 		await fish(channel)
 	if bot.user.mentioned_in(message) and "play" in message.content.lower().split(" ") and "despacito" in message.content.lower().split(" "):
 		await despacito(channel)

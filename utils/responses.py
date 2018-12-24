@@ -47,6 +47,8 @@ async def random_zhong_response(channel):
 	if random.randint(1, 100) <= RESPONSE_CHANCE:
 		with open(img_path + random.choice(zhong_response_images), "rb") as f:
 			await channel.send(file=discord.File(f, "response.png"))
+	elif random.randint(1, 100) <= RESPONSE_CHANCE + 5:
+		await channel.send("<:Zatchilul:430042782279663626>")
 
 async def ikr(channel):
 	await channel.send("ikr")
