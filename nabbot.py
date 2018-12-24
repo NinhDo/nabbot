@@ -41,7 +41,7 @@ read_list = [sys.stdin]
 
 @bot.event
 async def on_ready():
-	await bot.change_presence(game=discord.Game("Plotting Nubbot's Demise"))
+	await bot.change_presence(activity=discord.Game("Plotting Nubbot's Demise"))
 	print('Logged in as')
 	print(bot.user.name)
 	print(bot.user.id)
