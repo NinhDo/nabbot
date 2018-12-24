@@ -64,5 +64,8 @@
 			"delnfc": "Deletes the selected Nintendo FC. e.g. delnfc Naneth",
 			"dnfc": "Deletes the selected Nintendo FC. e.g. delnfc Naneth"
 		}
+	},
+	"Discord": {
+		"changepresence": "Changes Nabbot's presence"
 	}
 }
