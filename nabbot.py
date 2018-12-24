@@ -41,6 +41,7 @@ read_list = [sys.stdin]
 
 @bot.event
 async def on_ready():
+	await bot.change_presence(game=discord.Game("Plotting Nubbot's Demise"))
 	print('Logged in as')
 	print(bot.user.name)
 	print(bot.user.id)
@@ -121,6 +122,9 @@ async def on_message(message):
 		await fish(channel)
 	if bot.user.mentioned_in(message) and "play" in message.content.lower().split(" ") and "despacito" in message.content.lower().split(" "):
 		await despacito(channel)
+	if message.author == ninh and command = changepresence:
+		new_presence = message.content.split(" ", 1)[1]
+		await bot.change_presence(game=discord.Game(new_presence))
 
 async def print_commands(channel):
 	with open(command_path) as f:
