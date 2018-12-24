@@ -99,7 +99,7 @@ async def on_message(message):
 			await nfc_add_fc(message, channel)
 		elif command in commands["Nintendo"]["Delete"].keys():
 			await nfc_delete_fc(message, channel)
-		elif command in commands["Discord"].keys() and message.author == ninh:
+		elif command in commands["Discord"].keys() and message.author.id == ninh:
 			new_presence = message.content.split(" ", 1)[1]
 			await bot.change_presence(activity=discord.Game(new_presence))
 		else:
