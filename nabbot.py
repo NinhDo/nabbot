@@ -122,7 +122,7 @@ async def on_message(message):
 		await fish(channel)
 	if bot.user.mentioned_in(message) and "play" in message.content.lower().split(" ") and "despacito" in message.content.lower().split(" "):
 		await despacito(channel)
-	if message.author == ninh and command = changepresence:
+	if message.author == ninh and command == changepresence:
 		new_presence = message.content.split(" ", 1)[1]
 		await bot.change_presence(game=discord.Game(new_presence))
 
