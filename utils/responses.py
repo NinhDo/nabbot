@@ -26,7 +26,7 @@ fish_gif = "fish.gif"
 bender_gif = "ShutUpBabyIKnowIt.gif"
 ikr_path = base_dir + "ikr.json"
 
-RESPONSE_CHANCE = 5
+RESPONSE_CHANCE = 4
 
 async def reverse(channel):
 	if random.randint(1, 100) <= 50:
@@ -47,7 +47,7 @@ async def random_zhong_response(channel):
 	if random.randint(1, 100) <= RESPONSE_CHANCE:
 		with open(img_path + random.choice(zhong_response_images), "rb") as f:
 			await channel.send(file=discord.File(f, "response.png"))
-	elif random.randint(1, 100) <= RESPONSE_CHANCE + 5:
+	elif random.randint(1, 100) <= RESPONSE_CHANCE * 2:
 		await channel.send("<:Zatchilul:430042782279663626>")
 
 async def ikr(channel):
